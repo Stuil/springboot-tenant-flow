@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ginyon</groupId>
+    <artifactId>iot-tenant</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <description>多租户管理系统</description>
+
+    <modules>
+        <module>iot-tenant-admin</module>
+        <module>iot-tenant-common</module>
+        <module>iot-tenant-framework</module>
+        <module>iot-tenant-modules</module>
+    </modules>
+
+    <properties>
+        <ginyon.version>1.0.0</ginyon.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <druid.version>1.2.16</druid.version>
+        <bitwalker.version>1.21</bitwalker.version>
+        <swagger.version>3.0.0</swagger.version>
+        <kaptcha.version>2.3.3</kaptcha.version>
+        <pagehelper.boot.version>1.4.6</pagehelper.boot.version>
+        <fastjson.version>2.0.34</fastjson.version>
+        <oshi.version>6.4.3</oshi.version>
+        <commons.io.version>2.11.0</commons.io.version>
+        <commons.collections.version>3.2.2</commons.collections.version>
+        <poi.version>4.1.2</poi.version>
+        <jwt.version>0.9.1</jwt.version>
+        <spring.boot.version>2.5.15</spring.boot.version>
+        <hutool.version>5.8.15</hutool.version>
+        <flatten-version>1.2.7</flatten-version>
+        <lombok.version>1.18.24</lombok.version>
+        <mybatis-plus.version>3.5.4</mybatis-plus.version>
+        <warm-flow>1.0.4</warm-flow>
+        <satoken.version>1.37.0</satoken.version>
+        <mapstruct-plus.version>1.3.5</mapstruct-plus.version>
+        <mapstruct-plus.lombok.version>0.2.0</mapstruct-plus.lombok.version>
+    </properties>
+
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- 解析客户端操作系统、浏览器等 -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
+            </dependency>
+
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+
+            <!-- 获取系统信息 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.linpeilie</groupId>
+                <artifactId>mapstruct-plus-spring-boot-starter</artifactId>
+                <version>${mapstruct-plus.version}</version>
+            </dependency>
+
+            <!-- Swagger3依赖 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- io常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <!-- excel工具 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <!-- collections工具类 -->
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collections.version}</version>
+            </dependency>
+
+            <!-- 阿里JSON解析器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- Token生成与解析-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>pro.fessional</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.minliuhua</groupId>
+                <artifactId>warm-flow-mybatis-sb-starter</artifactId>
+                <version>${warm-flow}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-jwt</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+
+
+            <!-- 通用工具-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>iot-tenant-common</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 权限范围-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-datascope</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 多数据源-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-datasource</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 日志记录-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-operatelog</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 接口文档-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-swagger</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 缓存服务-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-redis</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-web</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-satoken</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-security</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-captcha</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-mybatis</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-thread</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-tenant</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-excel</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-dict</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-banner</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-framework-tenant</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-modules-flow</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+
+            <!-- 定时任务-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-modules-quartz</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 代码生成-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-modules-generator</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 系统模块api-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>modules-system-api</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <!-- 系统模块biz-->
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>modules-system-biz</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ginyon</groupId>
+                <artifactId>tenant-modules-demo</artifactId>
+                <version>${ginyon.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>${spring.boot.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.github.linpeilie</groupId>
+                            <artifactId>mapstruct-plus-processor</artifactId>
+                            <version>${mapstruct-plus.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${mapstruct-plus.lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

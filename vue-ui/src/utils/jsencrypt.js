@@ -1,0 +1,22 @@
+import JSEncrypt from 'jsencrypt/bin/jsencrypt.min'
+
+// 密钥对生成 http://web.chacuo.net/netrsakeypair
+
+const publicKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCf23hXQEC0wt5wZ9YWe3yyUzoLvW7aUUemuGyMFRstIHHjFvZRnR73CY/aJ38aFsm2LNp+sD7xEi5aq4yo9aOh3W8BXlPLZdSmLgt+8KD8q14oam2VXMOZKL8BmoiFnVeCDaJ5zarDjYpQ54XkZvjPKY37MyT+84gm30pAkizR4QIDAQAB'
+
+const privateKey = 'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJ/beFdAQLTC3nBn1hZ7fLJTOgu9btpRR6a4bIwVGy0gceMW9lGdHvcJj9onfxoWybYs2n6wPvESLlqrjKj1o6HdbwFeU8tl1KYuC37woPyrXihqbZVcw5kovwGaiIWdV4INonnNqsONilDnheRm+M8pjfszJP7ziCbfSkCSLNHhAgMBAAECgYBN9EGoEr47J/g/SnOdPRTfBTT+Op+POSm+xJqyaSx6giLngfAWdo9+Gpya3r3dpBUzkIXwV9QpzRrrvlJ2pmrnoAolWtMk2b6IEUZNARA8N7HLzbCV7PiJ8A6qiwxbdZsn8eJvz1EuP9V8mwW5smxVNTBzD3iymeGPtOol5nMOTQJBAPcLOL0vA9tIp4iuNE/gDbnunHbIAwSPHrqKFBiRw//jkDmdoG/Za8mZbe61KWFjnVXqk3Bj7lXLvyjWso5IfQMCQQClpxUxGaG70J7Bs6frqejdJ1SGXBCGmMJsBesx6wqOincQBVDt/I29Ccl4n9y4RHppWlVtB780BfFRM+w2C2ZLAkEAkjKR4WNxZNQaUUjGrH5roR0UezbiklAgX0RXoDKjS0vgjjg6OfbxUtz5scqEMp5A/hdUKa753Mw21HQ6NvmvAQJAEMVQrO7mY+hkGkJBDufdzn4L3ap2ddoDXQJgZGZiZDn6geG35tA53VifUBoHM5SjPAVMPsSZBABSBSGXmYUf7wJBAPKOc3W2k0YeQEzs4NrtRL5pV06H6O123UiP6Z3cQxAuyIxXLI2Xn8IMk4jB/zqgNovi68TkXBoohDLxxjSeFPg='
+
+// 加密
+export function encrypt(txt) {
+  const encryptor = new JSEncrypt()
+  encryptor.setPublicKey(publicKey) // 设置公钥
+  return encryptor.encrypt(txt) // 对数据进行加密
+}
+
+// 解密
+export function decrypt(txt) {
+  const encryptor = new JSEncrypt()
+  encryptor.setPrivateKey(privateKey) // 设置私钥
+  return encryptor.decrypt(txt) // 对数据进行解密
+}
+

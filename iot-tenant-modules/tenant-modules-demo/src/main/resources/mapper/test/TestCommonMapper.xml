@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ginyon.test.mapper.TestCommonMapper">
+
+    <resultMap type="TestCommon" id="TestCommonResult">
+        <result property="id"    column="id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="title"    column="title"    />
+        <result property="level"    column="level"    />
+        <result property="sendDocNo"    column="send_doc_no"    />
+        <result property="sendDocUnit"    column="send_doc_unit"    />
+        <result property="publishTime"    column="publish_time"    />
+        <result property="deadline"    column="deadline"    />
+        <result property="label"    column="label"    />
+        <result property="content"    column="content"    />
+        <result property="money"    column="money"    />
+        <result property="views"    column="views"    />
+        <result property="newFileId"    column="new_file_id"    />
+        <result property="imageId"    column="image_id"    />
+    </resultMap>
+
+    <sql id="selectVo">
+        select t.id, t.create_by, t.create_time, t.update_by, t.update_time, t.del_flag, t.title, t.level, t.send_doc_no, t.send_doc_unit, t.publish_time, t.deadline, t.label, t.content, t.money, t.views, t.new_file_id, t.image_id from test_common t
+    </sql>
+</mapper>

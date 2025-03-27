@@ -1,0 +1,19 @@
+# 代码生成
+gen:
+  # 作者
+  author: ginyon
+  # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
+  packageName: com.ginyon.system
+  # 自动去除表前缀，默认是false
+  autoRemovePre: false
+  # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
+  tablePrefix: sys_
+  # 是否显示两列
+  twoColumn: Y
+  # 是否是否生成swagger
+  swaggerEnable: N
+  # 是否需要审批流
+  flowEnable: N
+  # 是否导出
+  exportEnable: Y
+

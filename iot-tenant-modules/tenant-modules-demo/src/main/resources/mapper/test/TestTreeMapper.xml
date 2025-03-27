@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ginyon.test.mapper.TestTreeMapper">
+
+    <resultMap type="TestTree" id="TestTreeResult">
+        <result property="id"    column="id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="treeName"    column="tree_name"    />
+        <result property="version"    column="version"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="delFlag"    column="del_flag"    />
+    </resultMap>
+
+    <sql id="selectVo">
+        select t.id, t.parent_id, t.tree_name, t.version, t.create_time, t.create_by, t.update_time, t.update_by, t.del_flag from test_tree t
+    </sql>
+</mapper>

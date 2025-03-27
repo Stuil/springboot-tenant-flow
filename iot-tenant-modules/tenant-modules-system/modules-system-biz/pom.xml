@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tenant-modules-system</artifactId>
+        <groupId>com.ginyon</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>modules-system-biz</artifactId>
+
+    <description>
+        system 模块下，我们放通用业务，支撑上层的核心业务。
+        例如说：用户、部门、权限、数据字典等等
+    </description>
+
+    <dependencies>
+        <!-- 权限范围-->
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-datascope</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-captcha</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-swagger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-tenant</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-operatelog</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ginyon</groupId>
+            <artifactId>tenant-framework-banner</artifactId>
+        </dependency>
+    </dependencies>
+</project>

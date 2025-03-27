@@ -1,0 +1,63 @@
+import request from '@/utils/request'
+
+// 查询${functionName}列表
+export function list${BusinessName}(query) {
+  return request({
+    url: '/${moduleName}/${businessName}/list',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询${functionName}详细
+export function get${BusinessName}(${pkColumn.javaField}) {
+  return request({
+    url: '/${moduleName}/${businessName}/' + ${pkColumn.javaField},
+    method: 'get'
+  })
+}
+
+// 新增${functionName}
+export function add${BusinessName}(data) {
+  return request({
+    url: '/${moduleName}/${businessName}',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改${functionName}
+export function update${BusinessName}(data) {
+  return request({
+    url: '/${moduleName}/${businessName}',
+    method: 'put',
+    data: data
+  })
+}
+
+// 删除${functionName}
+export function del${BusinessName}(${pkColumn.javaField}) {
+  return request({
+    url: '/${moduleName}/${businessName}/' + ${pkColumn.javaField},
+    method: 'delete'
+  })
+}
+
+<#if table.flowEnable == 'Y'>
+// 提交审批${functionName}
+export function submit(id) {
+  return request({
+    url: '/${moduleName}/${businessName}/submit/' + id,
+    method: 'get'
+  })
+}
+
+// 办理${functionName}
+export function handle(data, taskId, skipType, message) {
+  return request({
+    url: '/${moduleName}/${businessName}/handle?taskId=' + taskId + '&skipType=' + skipType + '&message=' + message,
+    data: data,
+    method: 'post'
+  })
+}
+</#if>

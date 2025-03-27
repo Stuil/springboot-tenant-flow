@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ginyon.test.mapper.TestSubMapper">
+
+    <resultMap type="TestSub" id="TestSubResult">
+        <result property="id"    column="id"    />
+        <result property="legalId"    column="legal_id"    />
+        <result property="lawyerName"    column="lawyer_name"    />
+        <result property="phone"    column="phone"    />
+        <result property="briefIntroduction"    column="brief_introduction"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectVo">
+        select t.id, t.legal_id, t.lawyer_name, t.phone, t.brief_introduction, t.del_flag, t.create_by, t.create_time, t.update_by, t.update_time, from test_sub t
+    </sql>
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ginyon.test.mapper.TestMaterMapper">
+
+    <resultMap type="TestMater" id="TestMaterResult">
+        <result property="id"    column="id"    />
+        <result property="lawFirmName"    column="law_firm_name"    />
+        <result property="address"    column="address"    />
+        <result property="fileId"    column="file_id"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="state"    column="state"    />
+        <result property="publishTime"    column="publish_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap id="TestMaterTestSubResult" type="TestMater" extends="TestMaterResult">
+        <collection property="testSubList" notNullColumn="sub_id" javaType="java.util.List" resultMap="TestSubResult" />
+    </resultMap>
+
+    <resultMap type="TestSub" id="TestSubResult">
+        <result property="id"    column="sub_id"    />
+        <result property="legalId"    column="sub_legal_id"    />
+        <result property="lawyerName"    column="sub_lawyer_name"    />
+        <result property="phone"    column="sub_phone"    />
+        <result property="briefIntroduction"    column="sub_brief_introduction"    />
+        <result property="delFlag"    column="sub_del_flag"    />
+        <result property="createBy"    column="sub_create_by"    />
+        <result property="createTime"    column="sub_create_time"    />
+        <result property="updateBy"    column="sub_update_by"    />
+        <result property="updateTime"    column="sub_update_time"    />
+    </resultMap>
+
+    <sql id="selectVo">
+        select t.id, t.law_firm_name, t.address, t.file_id, t.del_flag, t.state, t.publish_time, t.create_by, t.create_time, t.update_by, t.update_time from test_mater t
+    </sql>
+</mapper>
